@@ -1,0 +1,487 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: 0.4s ease;
+}
+
+/* Glass Effect */
+header.scrolled {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+}
+
+/* Logo */
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #38bdf8;
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Modern Underline Hover */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url("images/hero1.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 20px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #38bdf8;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: #0284c7;
+    transform: translateY(-3px);
+}
+
+/* ================= ABOUT SECTION LAYOUT ================= */
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap; /* allows mobile responsiveness */
+    margin-top: 40px;
+}
+
+.about-image {
+    flex: 1 1 300px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.about-text {
+    flex: 1 1 400px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Keep the Hire Me button consistent */
+.about-text .btn {
+    margin-top: 10px;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image, .about-text {
+        flex: 1 1 100%;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+}
+
+/* ================= PROJECT CARDS ================= */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    height: 350px; /* reduced height for almost square */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: 50%; /* image takes top half of card */
+    object-fit: cover; /* ensures image fills space without distortion */
+}
+
+.card-content {
+    padding: 15px;
+    flex: 1; /* take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden; /* prevents content overflow */
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-buttons .btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.85rem;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* View More Button */
+.view-more-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        height: auto; /* let height adjust automatically on mobile */
+    }
+
+    .card img {
+        height: 200px; /* fixed image height on mobile */
+    }
+}
+
+/* Blog Card Layout */
+#blog .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#blog .card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    height: 350px; /* almost square */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+#blog .card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+#blog .card-content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#blog .card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+#blog .card-content p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#blog .card-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#blog .card-buttons .btn {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.85rem;
+}
+
+#blog .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* View More Button */
+#blog .view-more-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #blog .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #blog .card {
+        width: 90%;
+        height: auto;
+    }
+
+    #blog .card img {
+        height: 200px;
+    }
+}
+
+/* Sections */
+.section {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #0f172a;
+}
+
+.light {
+    background: #f1f5f9;
+}
+
+
+/* Footer */
+footer {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ================= SOCIAL ICONS ================= */
+
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links a {
+    width: 55px;
+    height: 55px;
+    background: rgba(15, 23, 42, 0.9);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 22px;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+/* Facebook */
+.social-links a:nth-child(1):hover {
+    background: #1877F2;
+}
+
+/* Instagram */
+.social-links a:nth-child(2):hover {
+    background: radial-gradient(circle at 30% 107%, 
+                #fdf497 0%, #fdf497 5%, 
+                #fd5949 45%, #d6249f 60%, 
+                #285AEB 90%);
+}
+
+/* LinkedIn */
+.social-links a:nth-child(3):hover {
+    background: #0077B5;
+}
+
+/* TikTok */
+.social-links a:nth-child(4):hover {
+    background: #000000;
+}
+
+/* X (Twitter) */
+.social-links a:nth-child(5):hover {
+    background: #000000;
+}
+
+.social-links a:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 70px;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        width: 220px;
+        padding: 20px;
+        gap: 20px;
+        transform: translateX(100%);
+        transition: 0.4s ease;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
